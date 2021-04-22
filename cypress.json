@@ -1,0 +1,14 @@
+{
+  "integrationFolder": "cypress/tests",
+  "pluginsFile": false,
+  "supportFile": "cypress/support/index.ts",
+  "fixturesFolder": "cypress/fixtures",
+  "video": false,
+  "watchForFileChanges": false,
+  "chromeWebSecurity": false,
+  "retries": {
+    "runMode": 2,
+    "openMode": 0
+  },
+  "baseUrl": "http://localhost:5000/"
+}
