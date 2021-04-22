@@ -1,0 +1,36 @@
+{
+  "results": [
+    {
+      "name": {
+        "title": "Mr",
+        "first": "Léonard",
+        "last": "Guerin"
+      },
+      "location": {
+        "street": {
+          "number": 7593,
+          "name": "Rue Barrier"
+        },
+        "city": "Brest",
+        "state": "Haute-Corse",
+        "postcode": 19057
+      },
+      "email": "leonard.guerin@example.com",
+      "login": {
+        "username": "orangesnake472"
+      },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/men/34.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/men/34.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/34.jpg"
+      },
+      "nat": "FR"
+    }
+  ],
+  "info": {
+    "seed": "70198f233dd3a739",
+    "results": 1,
+    "page": 1,
+    "version": "1.3"
+  }
+}

@@ -15,7 +15,7 @@ export default props => {
   };
 
   return (
-    <div>
+    <div cy-selector="userCard">
       <Card onClick={handleClickOpen}>
         <CardActionArea>
           <CardHeader
