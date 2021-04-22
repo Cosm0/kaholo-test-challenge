@@ -15,7 +15,7 @@ export default props => {
   };
 
   return (
-    <div cy-selector="userCard">
+    <div cy-selector={props.item.login.username + '-userCard'}>
       <Card onClick={handleClickOpen}>
         <CardActionArea>
           <CardHeader

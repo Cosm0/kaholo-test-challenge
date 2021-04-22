@@ -1,4 +1,4 @@
-export const generate = (howManyUsers: number, nationality: string = '') => {
+export const generateUsers = (howManyUsers, nationality = '') => {
     const mockedResponse = {
         results: []
     }

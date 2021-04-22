@@ -1,4 +1,4 @@
-import { homePageActions } from "../../pages/home/home.actons";
+import { homePageActions } from "../../pages/home/home.actions";
 import { settingsPageActions } from "../../pages/settings/settings.actions";
 
 
