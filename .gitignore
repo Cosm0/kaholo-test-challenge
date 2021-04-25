@@ -1,6 +1,7 @@
 ### my custom ignores
 node_modules
 dist
+/cypress/screenshots/
 
 ######## GENERATED IGNORES BELOW THIS LINE ########
 
