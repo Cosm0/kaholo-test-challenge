@@ -1,6 +1,7 @@
 import { searchingUsersTestActions } from "./searchingUsers.testActions";
 import { searchActions } from "../../pages/search/search.actions";
 import { homePageChecks } from "../../pages/home/home.checks";
+import {nationality} from "../../utils/nationality";
 
 context('Some users match search pattern', () => {
     // Given
@@ -76,4 +77,18 @@ context('Search', () => {
         // Then
         searchingUsersTestActions.shouldNotCrash();
     }));
+
+    [
+        nationality.none,
+        nationality.french,
+        nationality.british,
+        nationality.swiss,
+        nationality.spanish
+    ].forEach(nationality =>
+        it('Should only search users of selected nationality', () => {
+            // TODO: Implement
+            // Select nationality from settings
+            // Switch to home page and search for users
+            // Assert that only users of selected nationality are presented
+        }));
 })
