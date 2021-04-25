@@ -1,6 +1,8 @@
 import { homePageActions } from "../../pages/home/home.actions";
 import { viewingUsersActions } from "./viewingUsersList.testActions";
 import { homePageChecks } from "../../pages/home/home.checks";
+import {navChecks} from "../../pages/nav/nav.checks";
+import {searchChecks} from "../../pages/search/search.checks";
 
 context('Home page', () => {
     [0, 1, 10, 49, 50].forEach(howManyUsers => {
@@ -37,4 +39,14 @@ context('Home page', () => {
         // Then
         viewingUsersActions.selectedUserDetailsPresented();
     });
+
+    [500, 404, 401].forEach(errorCode => it.only(`Should not crash when server responds with error ${errorCode}`, () => {
+        // When
+        viewingUsersActions.serverReturnsError(errorCode);
+
+        // Then
+        homePageChecks.displayedUsersEquals(0);
+        navChecks.navAvailable();
+        searchChecks.searchAvailable();
+    }))
 });

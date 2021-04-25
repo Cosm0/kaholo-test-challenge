@@ -21,6 +21,13 @@ export const viewingUsersActions = {
         mockWithNoNationality();
         homePageActions.visit();
     },
+    serverReturnsError: (errorCode) => {
+        cy.intercept(
+            'GET',
+            'https\:\/\/randomuser\.me\/api\/\?page=1&results=50&nat=',
+            { statusCode: errorCode });
+        homePageActions.visit();
+    },
     selectsUser: () => {
         // cy.get('@mock-users').then(users => cy.log(JSON.stringify(users.response.body.results)));
         cy.get('@mock-users').then(users => {
