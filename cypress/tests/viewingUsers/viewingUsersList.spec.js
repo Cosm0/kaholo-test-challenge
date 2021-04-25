@@ -29,6 +29,12 @@ context('Home page', () => {
         viewingUsersActions.moreUsersLoaded();
     });
 
+    it.skip('Should load up max 1000 users', () => {
+        // TODO: implement
+        // scroll 20 times to load 50 users
+        // further scrolling does not load more users
+    });
+
     it('Should allow user details review', () => {
         // Given
         viewingUsersActions.serverReturnsUsers();
@@ -40,6 +46,12 @@ context('Home page', () => {
         viewingUsersActions.selectedUserDetailsPresented();
     });
 
+    it('Should allow going back to users list after closing user details', () => {
+        // TODO: Implement
+        // Open up some user details and then close
+        // Should be possible to close and view entire list
+    });
+
     [500, 404, 401].forEach(errorCode => it(`Should not crash when server responds with error ${errorCode}`, () => {
         // When
         viewingUsersActions.serverReturnsError(errorCode);
@@ -48,5 +60,5 @@ context('Home page', () => {
         homePageChecks.displayedUsersEquals(0);
         navChecks.navAvailable();
         searchChecks.searchAvailable();
-    }))
+    }));
 });
