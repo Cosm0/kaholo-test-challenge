@@ -27,7 +27,7 @@ context('No user matches search pattern', () => {
     before(() => searchingUsersTestActions.someUsersListed());
     beforeEach(() => searchActions.clearSearch());
 
-    it.only('Should list no users', () => {
+    it('Should list no users', () => {
         // When
         searchingUsersTestActions.searchForPatternThatDoesNotMatchAnyUser();
 
