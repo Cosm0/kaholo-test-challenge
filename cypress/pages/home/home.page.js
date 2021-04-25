@@ -1,3 +1,3 @@
 export const homePage = {
-    userCard: 'div[cy-selector*=\'-userCard\']'
+    userCard: (login) => `*[cy-selector*=\'${login}\-userCard']`
 }

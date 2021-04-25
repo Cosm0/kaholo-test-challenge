@@ -4,9 +4,9 @@ import {homePageChecks} from "../../pages/home/home.checks";
 
 context('Home page', () => {
     [0, 1, 10, 49, 50].forEach(howManyUsers => {
-        it(`Should list ${howManyUsers} users`, () => {
+        it(`Should list ${howManyUsers} users on page load`, () => {
             // Given
-            viewingUsersActions.mockUsersLoadOnPageVisit(howManyUsers);
+            viewingUsersActions.serverReturnsNumberOfUsers(howManyUsers);
 
             // When
             homePageActions.visit();
@@ -21,17 +21,20 @@ context('Home page', () => {
         homePageActions.visit();
 
         // When
-        viewingUsersActions.scrollToBottom();
+        homePageActions.scrollToBottom();
 
         // Then
         viewingUsersActions.moreUsersLoaded();
     });
 
-    it.skip('Should allow user details review', () => {
-        // TODO: finish draft
+    it('Should allow user details review', () => {
         // Given
-        // cy.get('@knownUser').then(usr => cy.log(JSON.stringify(usr)));
-        viewingUsersActions.knownUserLoaded();
+        viewingUsersActions.serverReturnsUser('testUser');
 
+        // When
+        viewingUsersActions.selectsUser();
+
+        // Then
+        viewingUsersActions.selectedUserDetailsPresented();
     });
 });

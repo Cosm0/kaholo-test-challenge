@@ -22,7 +22,7 @@ export default props => {
     >
       <DialogTitle id="alert-dialog-title">Details</DialogTitle>
       <DialogContent>
-        <DialogContentText id="alert-dialog-description">
+        <DialogContentText id="alert-dialog-description" cy-selector="user-description">
           <b>Email:</b> {item.email} <br />
           <b>Username:</b> {item.login.username} <br />
           <b>City:</b> {item.location.city} <br />
