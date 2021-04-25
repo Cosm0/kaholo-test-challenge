@@ -1,5 +1,5 @@
 import {homePageActions} from "../../pages/home/home.actions";
-import {viewingUsersActions} from "./viewingUsers.testActions";
+import {viewingUsersActions} from "./viewingUsersList.testActions";
 import {homePageChecks} from "../../pages/home/home.checks";
 
 context('Home page', () => {
@@ -29,7 +29,7 @@ context('Home page', () => {
 
     it('Should allow user details review', () => {
         // Given
-        viewingUsersActions.serverReturnsUser('testUser');
+        viewingUsersActions.serverReturnsUser();
 
         // When
         viewingUsersActions.selectsUser();

@@ -124,6 +124,7 @@ const Layout = props => {
               }}
               inputProps={{ "aria-label": "Search" }}
               onChange={search}
+              cy-selector="search-box"
             />
           </div>
         </Toolbar>
