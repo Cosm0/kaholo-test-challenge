@@ -1,6 +1,6 @@
-import {homePageActions} from "../../pages/home/home.actions";
-import {viewingUsersActions} from "./viewingUsersList.testActions";
-import {homePageChecks} from "../../pages/home/home.checks";
+import { homePageActions } from "../../pages/home/home.actions";
+import { viewingUsersActions } from "./viewingUsersList.testActions";
+import { homePageChecks } from "../../pages/home/home.checks";
 
 context('Home page', () => {
     [0, 1, 10, 49, 50].forEach(howManyUsers => {
@@ -29,7 +29,7 @@ context('Home page', () => {
 
     it('Should allow user details review', () => {
         // Given
-        viewingUsersActions.serverReturnsUser();
+        viewingUsersActions.serverReturnsUsers();
 
         // When
         viewingUsersActions.selectsUser();

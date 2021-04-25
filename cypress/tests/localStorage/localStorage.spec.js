@@ -1,6 +1,6 @@
 import { homePageActions } from "../../pages/home/home.actions";
 import { settingsPageActions } from "../../pages/settings/settings.actions";
-import {localStorageTestActions} from "./localStorage.testActions";
+import { localStorageTestActions } from "./localStorage.testActions";
 
 
 context("Test challenge website local storage", () => {

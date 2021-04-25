@@ -1,5 +1,3 @@
-import {homePageActions} from "../pages/home/home.actions";
-
 export const generateUsers = (howManyUsers, nationality = '') => {
     const mockedResponse = {
         results: []
@@ -37,23 +35,12 @@ export const generateUsers = (howManyUsers, nationality = '') => {
     return mockedResponse;
 };
 
-export const returnKnownUsers = (logins) => {
+export const mockWithNoNationality = () => {
     cy.fixture('usersNoNat.json').then(users => {
-        const knownUsers = [];
-        logins.forEach(login => {
-            let counter = 0;
-            const knownUser = users.results[counter];
-            knownUser.login.username = login;
-            knownUsers.push(knownUser)
-            cy.intercept(
-                'GET',
-                'https\:\/\/randomuser\.me\/api\/\?page=1&results=50&nat=',
-                users);
-            counter++;
-        })
-        cy.wrap(knownUsers).as('knownUsers');
+        cy.intercept(
+            'GET',
+            'https\:\/\/randomuser\.me\/api\/\?page=1&results=50&nat=',
+            users);
+        cy.wrap(users.results).as('mock-users');
     });
-
-    homePageActions.visit();
-}
-
+};
