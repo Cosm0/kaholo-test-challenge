@@ -40,7 +40,7 @@ context('Home page', () => {
         viewingUsersActions.selectedUserDetailsPresented();
     });
 
-    [500, 404, 401].forEach(errorCode => it.only(`Should not crash when server responds with error ${errorCode}`, () => {
+    [500, 404, 401].forEach(errorCode => it(`Should not crash when server responds with error ${errorCode}`, () => {
         // When
         viewingUsersActions.serverReturnsError(errorCode);
 
