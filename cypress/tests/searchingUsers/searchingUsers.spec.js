@@ -34,6 +34,20 @@ context('No user matches search pattern', () => {
         // Then
         homePageChecks.displayedUsersEquals(0);
     });
+
+    it('Should list all users on search box clear', () => {
+        // TODO: Implement
+        // Should search for user
+        // Clear search
+        // Assert that all users are listed again
+    });
+
+    it('Should not request for more users on search clear', () => {
+        // TODO: Implement
+        // Should search for user
+        // Clear search
+        // Assert that backend is not requested for another page
+    });
 });
 
 context('Search', () => {

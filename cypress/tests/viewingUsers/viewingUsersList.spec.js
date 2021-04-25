@@ -3,6 +3,7 @@ import { viewingUsersActions } from "./viewingUsersList.testActions";
 import { homePageChecks } from "../../pages/home/home.checks";
 import {navChecks} from "../../pages/nav/nav.checks";
 import {searchChecks} from "../../pages/search/search.checks";
+import {nationality} from "../../utils/nationality";
 
 context('Home page', () => {
     [0, 1, 10, 49, 50].forEach(howManyUsers => {
@@ -52,7 +53,8 @@ context('Home page', () => {
         // Should be possible to close and view entire list
     });
 
-    [500, 404, 401].forEach(errorCode => it(`Should not crash when server responds with error ${errorCode}`, () => {
+    [500, 404, 401].forEach(errorCode =>
+        it(`Should not crash when server responds with error ${errorCode}`, () => {
         // When
         viewingUsersActions.serverReturnsError(errorCode);
 
@@ -60,5 +62,18 @@ context('Home page', () => {
         homePageChecks.displayedUsersEquals(0);
         navChecks.navAvailable();
         searchChecks.searchAvailable();
+    }));
+
+    [
+        nationality.none,
+        nationality.french,
+        nationality.british,
+        nationality.swiss,
+        nationality.spanish
+    ].forEach(nationality =>
+        it('Should list users of selected nationality', () => {
+            // TODO: Implement
+            // Select nationality from settings
+            // Assert that only users of selected nationality are presented
     }));
 });
