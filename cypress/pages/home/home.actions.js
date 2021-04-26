@@ -7,7 +7,7 @@ export const homePageActions = {
         cy.wait('@wait-users');
     },
     scrollToBottom: () => {
-        cy.intercept('GET', 'https\:\/\/randomuser\.me\/api\/\?page=[123456789]&results=50&nat=', { fixture: 'usersNoNat.json' });
+        cy.intercept('GET', 'https\:\/\/randomuser\.me\/api\/\?page=[123456789]&results=50&nat=', { fixture: 'users.json' });
         cy.scrollTo('bottom', { duration: 1500 });
     },
     selectUser: (login) => {

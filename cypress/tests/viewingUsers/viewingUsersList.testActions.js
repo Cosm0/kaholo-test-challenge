@@ -2,6 +2,9 @@ import { generateUsers, mockWithNoNationality } from "../../utils/usersMock";
 import { homePageChecks } from "../../pages/home/home.checks";
 import { homePageActions } from "../../pages/home/home.actions";
 import { userDetailsChecks } from "../../pages/userDetails/userDetails.checks";
+import {settingsPageActions} from "../../pages/settings/settings.actions";
+import {navActions} from "../../pages/nav/nav.actions";
+import {nationality} from "../../utils/nationality";
 
 export const viewingUsersActions = {
     serverReturnsNumberOfUsers: (howMany = 50) => {
@@ -25,7 +28,7 @@ export const viewingUsersActions = {
         cy.intercept(
             'GET',
             'https\:\/\/randomuser\.me\/api\/\?page=1&results=50&nat=',
-            { statusCode: errorCode });
+            {statusCode: errorCode});
         homePageActions.visit();
     },
     selectsUser: () => {
@@ -47,6 +50,25 @@ export const viewingUsersActions = {
                     user.location.state,
                     user.location.postcode])
             });
+    },
+    apiProvidesUsersOfNationality: (nationality) => {
+        cy.intercept(
+            'GET',
+            'https\:\/\/randomuser\.me\/api\/\?page=1&results=50&nat=.*',
+            { fixture: `users${nationality}` }).as('mock-users');
+    },
+    selectNationality: (nationality) => {
+        settingsPageActions.visit();
+        settingsPageActions.selectNationality(nationality);
+    },
+    onlyUsersWithSelectedNationalityRequested: (nationality) => {
+        cy.intercept(`https\:\/\/randomuser\.me\/api\/\?page=[0123456789]&results=50&nat=${nationality}`).as('users-nationality');
+        navActions.goToHome();
+        cy.get('@users-nationality').then(req => {
+            expect(req.request.url).to.be.equal(`https://randomuser.me/api/?page=1&results=50&nat=${nationality}`);
+        });
+        homePageChecks.displayedUsersGreaterThan(0);
     }
 }
+
 

@@ -36,7 +36,7 @@ export const generateUsers = (howManyUsers, nationality = '') => {
 };
 
 export const mockWithNoNationality = () => {
-    cy.fixture('usersNoNat.json').then(users => {
+    cy.fixture('users.json').then(users => {
         cy.intercept(
             'GET',
             'https\:\/\/randomuser\.me\/api\/\?page=1&results=50&nat=',

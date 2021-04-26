@@ -4,6 +4,8 @@ import { homePageChecks } from "../../pages/home/home.checks";
 import {navChecks} from "../../pages/nav/nav.checks";
 import {searchChecks} from "../../pages/search/search.checks";
 import {nationality} from "../../utils/nationality";
+import {settingsPageActions} from "../../pages/settings/settings.actions";
+import {navActions} from "../../pages/nav/nav.actions";
 
 context('Home page', () => {
     [0, 1, 10, 49, 50].forEach(howManyUsers => {
@@ -47,7 +49,7 @@ context('Home page', () => {
         viewingUsersActions.selectedUserDetailsPresented();
     });
 
-    it('Should allow going back to users list after closing user details', () => {
+    it.skip('Should allow going back to users list after closing user details', () => {
         // TODO: Implement
         // Open up some user details and then close
         // Should be possible to close and view entire list
@@ -72,8 +74,13 @@ context('Home page', () => {
         nationality.spanish
     ].forEach(nationality =>
         it('Should list users of selected nationality', () => {
-            // TODO: Implement
-            // Select nationality from settings
-            // Assert that only users of selected nationality are presented
+            // Given
+            viewingUsersActions.apiProvidesUsersOfNationality(nationality);
+
+            // When
+            viewingUsersActions.selectNationality(nationality);
+
+            // Then
+            viewingUsersActions.onlyUsersWithSelectedNationalityRequested(nationality);
     }));
 });

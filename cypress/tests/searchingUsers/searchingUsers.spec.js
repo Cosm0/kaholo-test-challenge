@@ -36,14 +36,14 @@ context('No user matches search pattern', () => {
         homePageChecks.displayedUsersEquals(0);
     });
 
-    it('Should list all users on search box clear', () => {
+    it.skip('Should list all users on search box clear', () => {
         // TODO: Implement
         // Should search for user
         // Clear search
         // Assert that all users are listed again
     });
 
-    it('Should not request for more users on search clear', () => {
+    it.skip('Should not request for more users on search clear', () => {
         // TODO: Implement
         // Should search for user
         // Clear search
@@ -85,7 +85,7 @@ context('Search', () => {
         nationality.swiss,
         nationality.spanish
     ].forEach(nationality =>
-        it('Should only search users of selected nationality', () => {
+        it.skip('Should only search users of selected nationality', () => {
             // TODO: Implement
             // Select nationality from settings
             // Switch to home page and search for users
