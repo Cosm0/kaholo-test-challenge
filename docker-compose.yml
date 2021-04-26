@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  kaholo-app:
+    image: kaholo-app
+    build:
+      dockerfile: docker/Dockerfile
+      context: .
+    ports:
+      - 80:80
+    networks:
+      gitlab:
+        ipv4_address: 172.20.30.50
+
+networks:
+  gitlab:
+    driver: bridge
+    name: kaholo
+    ipam:
+      config:
+        - subnet: 172.20.30.0/24
+

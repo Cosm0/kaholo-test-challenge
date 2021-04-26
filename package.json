@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack serve --mode development",
-    "cy:report": "node cypress/utils/reports.js"
+    "cy:report": "node cypress/utils/reports.js --headless=true"
   },
   "author": "Mateusz Myszka",
   "license": "ISC",

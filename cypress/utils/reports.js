@@ -27,6 +27,7 @@ async function generateReport() {
 }
 
 function cypressSettings(browser, headless) {
+    console.log(headless)
     if (browser === undefined) {
         argv.browser = "chrome";
     }
@@ -38,9 +39,9 @@ function cypressSettings(browser, headless) {
     return {
         browser: argv.browser,
         headless: isHeadless,
-        quiet: false
+        quiet: false,
         // uncomment below if you only want to run tests from one of the files
-        // spec: ".path-to-test"
+        // spec: "/cypress/tests/home"
     };
 }
 
@@ -59,5 +60,5 @@ async function runTests(argv) {
         process.exit(1);
     }
 }
-
+console.log(argv.headless);
 runTests(argv);
