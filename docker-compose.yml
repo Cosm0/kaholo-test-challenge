@@ -4,16 +4,30 @@ services:
   kaholo-app:
     image: kaholo-app
     build:
-      dockerfile: docker/Dockerfile
+      dockerfile: docker/Dockerfile-app
       context: .
     ports:
       - 80:80
     networks:
-      gitlab:
-        ipv4_address: 172.20.30.50
+      - kaholo
+
+  e2eTests:
+    depends_on:
+      - kaholo-app
+    image: kaholo-e2e-tests
+    build:
+      dockerfile: docker/Dockerfile-cypress
+      context: .
+    volumes:
+      - ./cypress/screenshots/:/e2e/screenshots/
+      - ./cypress/reports/:/e2e/reports/
+    command: npx cypress run
+#    command: npm run cy:report
+    networks:
+      - kaholo
 
 networks:
-  gitlab:
+  kaholo:
     driver: bridge
     name: kaholo
     ipam:

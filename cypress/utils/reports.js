@@ -27,7 +27,6 @@ async function generateReport() {
 }
 
 function cypressSettings(browser, headless) {
-    console.log(headless)
     if (browser === undefined) {
         argv.browser = "chrome";
     }
@@ -60,5 +59,5 @@ async function runTests(argv) {
         process.exit(1);
     }
 }
-console.log(argv.headless);
+
 runTests(argv);
