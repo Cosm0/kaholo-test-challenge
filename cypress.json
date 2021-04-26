@@ -11,5 +11,12 @@
     "runMode": 2,
     "openMode": 0
   },
-  "baseUrl": "http://localhost:5000/"
+  "baseUrl": "http://localhost:5000/",
+  "reporter": "mochawesome",
+  "reporterOptions": {
+    "reportDir": "cypress/reports/temporary",
+    "overwrite": false,
+    "html": false,
+    "json": true
+  }
 }
